@@ -18,5 +18,7 @@
       "launch": {
          "local_path": "main.html"
       }
-    }
+    },
+
+    "options_page": "options.html"
 }
