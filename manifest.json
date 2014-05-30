@@ -1,0 +1,22 @@
+{
+    "manifest_version":         2,
+    "name":                     "Talk Timer",
+    "version":                  "0.0.1",
+
+    "description":              "Visual timer for talks, with last minute warning",
+
+    "author":                   "Chisel Wright",
+
+    "minimum_chrome_version":   "22",
+
+    "icons": {
+         "16": "assets/icon_128.png",
+        "128": "assets/icon_128.png"
+    },
+
+    "app": {
+      "launch": {
+         "local_path": "main.html"
+      }
+    }
+}
