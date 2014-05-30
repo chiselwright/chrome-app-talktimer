@@ -1,5 +1,5 @@
 
-var seconds = 5 * 60;
+var seconds, warningseconds;
 var  oktime = true;
 var  active = false;
 var timerId;
@@ -60,7 +60,7 @@ function tick() {
             warningTimer();
         }
     }
-    else if (seconds < 60) {
+    else if (seconds < warningseconds) {
         warningTimer();
     }
 
@@ -85,7 +85,13 @@ function resetTimer() {
         active = false;
     }
     okTimer();
-    seconds = 5 * 60;
+    // set value from options
+    seconds = (localStorage.countdownMinutes * 60)
+                +
+              (localStorage.countdownSeconds * 1);
+    warningseconds = (localStorage.warningMinutes * 60)
+                        +
+                     (localStorage.warningSeconds * 1);
     showCurrentTime(seconds);
 }
 
