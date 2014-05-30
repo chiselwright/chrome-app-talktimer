@@ -10,18 +10,20 @@ function initialise() {
     $( "#save-options" ).click(function() {
         saveOptions(this);
     });
-
+    $( "#launch-app" ).click(function() {
+        launchApp(true);
+    });
     // sane defaults
-    if (localStorage.countdownMinutes == null || localStorage.countdownMinutes < 0) {
+    if (localStorage.countdownMinutes === undefined || localStorage.countdownMinutes < 0) {
         localStorage.countdownMinutes = 5;
     }
-    if (localStorage.countdownSeconds == null || localStorage.countdownSeconds < 0) {
+    if (localStorage.countdownSeconds === undefined || localStorage.countdownSeconds < 0) {
         localStorage.countdownSeconds = 0;
     }
-    if (localStorage.warningMinutes == null || localStorage.warningMinutes < 0) {
+    if (localStorage.warningMinutes === undefined || localStorage.warningMinutes < 0) {
         localStorage.warningMinutes = 0;
     }
-    if (localStorage.warningSeconds == null || localStorage.warningSeconds < 0) {
+    if (localStorage.warningSeconds === undefined || localStorage.warningSeconds < 0) {
         localStorage.warningSeconds = 0;
     }
 
@@ -115,11 +117,18 @@ function sanitiseTime(minutes, seconds) {
     var totalSeconds = (60 * minutes) + (1 * seconds);
 
     if (totalSeconds <= 0) {
-        return [0, 0];
+        return [0, 0, 0];
     }
 
     var min = Math.floor(totalSeconds / 60);
     var sec = totalSeconds - (min * 60);
 
     return [totalSeconds, min, sec];
+}
+
+
+function launchApp(closeTab) {
+    // http://stackoverflow.com/a/16130739
+    var appUrl = chrome.extension.getURL('main.html');
+    location.href = appUrl;
 }

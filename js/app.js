@@ -10,6 +10,8 @@ var overrunSounded  = false;
 
 $(document).ready(function() {
     $('body').addClass('time-warning');
+    
+    initialiseProperties();
 
     resetTimer();
 
@@ -114,6 +116,23 @@ function resetTimer() {
                         +
                      (localStorage.warningSeconds * 1);
     showCurrentTime(seconds);
+}
+
+function initialiseProperties() {
+    keys = ['countdownMinutes', 'countdownSeconds', 'warningMinutes', 'warningSeconds'];
+    for (var i in keys) {
+        if(localStorage.getItem(keys[i]) === null) {
+            openOptions(true);
+            return false; // so we don't open more than we need to
+        }
+    }
+    return true;
+}
+
+function openOptions(closeTab) {
+    // http://stackoverflow.com/a/16130739
+    var optionsUrl = chrome.extension.getURL('options.html');
+    location.href = optionsUrl;
 }
 
 function okTimer() {
