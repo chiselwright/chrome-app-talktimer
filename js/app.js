@@ -4,6 +4,10 @@ var  oktime = true;
 var  active = false;
 var timerId;
 
+var warningSounded  = false;
+var timeUpSounded   = false;
+var overrunSounded  = false;
+
 $(document).ready(function() {
     $('body').addClass('time-warning');
 
@@ -45,11 +49,23 @@ function tick() {
     seconds = seconds - 1;
 
     if (seconds < -30) {
+        if (!overrunSounded) {
+            var audio = new Audio("assets/NukeSiren.mp3");
+            audio.loop = false;
+            audio.play();
+            overrunSounded = true;
+        };
         clearInterval(timerId);
         warningTimer();
         seconds = -30;
     }
     else if (seconds < 1) {
+        if (!timeUpSounded) {
+            var audio = new Audio("assets/Inception.mp3");
+            audio.loop = false;
+            audio.play();
+            timeUpSounded = true;
+        };
         clearInterval(timerId);
         timerId = setInterval(function() { tick(); }, 400);
         oktime = !oktime;
@@ -84,6 +100,11 @@ function resetTimer() {
         clearInterval(timerId);
         active = false;
     }
+
+    warningSounded = false;
+    timeUpSounded  = false;
+    overrunSounded = false;
+
     okTimer();
     // set value from options
     seconds = (localStorage.countdownMinutes * 60)
@@ -104,6 +125,13 @@ function okTimer() {
 }
 
 function warningTimer() {
+    if (!warningSounded) {
+        var audio = new Audio("assets/TempleBell.mp3");
+        audio.loop = false;
+        audio.play();
+        warningSounded = true;
+    };
+
     // remove 'ok' colouring
     $('body').removeClass('time-ok');
 
