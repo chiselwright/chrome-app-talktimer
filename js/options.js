@@ -21,7 +21,7 @@ function initialise() {
         localStorage.countdownSeconds = 0;
     }
     if (localStorage.warningMinutes === undefined || localStorage.warningMinutes < 0) {
-        localStorage.warningMinutes = 0;
+        localStorage.warningMinutes = 1;
     }
     if (localStorage.warningSeconds === undefined || localStorage.warningSeconds < 0) {
         localStorage.warningSeconds = 0;
