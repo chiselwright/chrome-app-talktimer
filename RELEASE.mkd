@@ -1,0 +1,7 @@
+# PREPARING THE RELEASE
+
+* update the version in the manifes file
+* create a new zipfile to upload:
+    git archive --output talktimer.zip --prefix talktimer/ -v HEAD
+* visit https://chrome.google.com/webstore/developer/dashboard?hl=en&gl=US
+** go through the motions
