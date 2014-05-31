@@ -1,7 +1,10 @@
 # PREPARING THE RELEASE
 
-* update the version in the manifes file
+* update the version in the manifest file
+* commit this change
+* tag the release
+    git tag v0.0.x
 * create a new zipfile to upload:
     git archive --output talktimer.zip --prefix talktimer/ -v HEAD
 * visit https://chrome.google.com/webstore/developer/dashboard?hl=en&gl=US
-** go through the motions
+* go through the motions
