@@ -10,19 +10,34 @@ var overrunSounded  = false;
 
 $(document).ready(function() {
     $('body').addClass('time-warning');
-    
+
     initialiseProperties();
 
     resetTimer();
 
     $( "body" ).keypress(function( event ) {
+        // unless otherwise stated we don't fade out
+        fadeOut=false;
+        // make the key control help blocks vanish on a keypress
         if (event.which == 32 ) { // space
+            fadeOut=true;
             startstopTimer();
             event.preventDefault();
         }
         else if (event.which == 114 || event.which == 82) { // 'r' and 'R'
+            // don't fade out on a reset
+            // we'll be showing it again shortly
             resetTimer();
             event.preventDefault();
+        }
+        else if (event.which == 99 || event.which == 67) { // 'c' and 'C'
+            fadeOut=true;
+            openOptions(true);
+            event.preventDefault();
+        }
+
+        if (fadeOut) {
+            $('.keyboard-info').fadeTo(600, 0);
         }
     });
 });
@@ -116,6 +131,9 @@ function resetTimer() {
                         +
                      (localStorage.warningSeconds * 1);
     showCurrentTime(seconds);
+
+    // make the help text visible again
+    $('.keyboard-info').fadeTo(1000, 1);
 }
 
 function initialiseProperties() {

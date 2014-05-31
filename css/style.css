@@ -33,3 +33,34 @@ html, body{height:100%; margin:0;padding:0}
   float:none;
   margin:0 auto;
 }
+
+.keyboard-letter{
+    font-style:normal;
+    color:#000000;
+    background:#fafafa;
+    border:0px solid #ffffff;
+    text-shadow:2px 0px 1px #ffffff;
+    box-shadow:2px 2px 5px #000000;
+    -moz-box-shadow:2px 2px 5px #000000;
+    -webkit-box-shadow:2px 2px 5px #000000;
+    border-radius:10px 10px 10px 10px;
+    -moz-border-radius:10px 10px 10px 10px;
+    -webkit-border-radius:10px 10px 10px 10px;
+    width:70px;
+    padding:7px 20px;
+    cursor:pointer;
+    margin:0 auto;
+}
+.keyboard-behaviour {
+    margin-left: 10px;
+}
+.keyboard-info {
+    line-height:4em
+}
+
+.keyboard-letter:active{
+    cursor:pointer;
+    position:relative;
+    top:2px;
+}
+
