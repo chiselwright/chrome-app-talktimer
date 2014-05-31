@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 function initialise() {
     // default behaviours for notify.js
-    $.notify.defaults({ className: "success", autoHideDelay: 2500 });
+    $.notify.defaults({ className: "success", autoHideDelay: 2500, arrowSize: 8 });
 
     // events we want to catch
     $( "#save-options" ).click(function() {
@@ -29,8 +29,6 @@ function initialise() {
 
     // load our options
     loadOptions();
-    // so that we only ever notify about this at the start
-    $.notify("Options Loaded", { arrowShow: false });
 }
 
 function loadOptions() {
@@ -100,7 +98,7 @@ function saveOptions(object) {
 
     loadOptions();
 
-    $(object).notify('Options Saved');
+    $(object).notify('Options Saved', { elementPosition: 'top right' });
 }
 
 Number.prototype.pad = function(size) {
