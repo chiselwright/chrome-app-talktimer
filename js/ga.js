@@ -10,7 +10,15 @@ _gaq.push(['_trackPageview']);
 })();
 
 function trackButtonClick(e) {
-    _gaq.push(['_trackEvent', e.target.id, 'clicked']);
+    _gaq.push(['_trackEvent', 'click', e.target.id]);
+};
+
+function trackKeyPress(e) {
+    var key = String.fromCharCode(e.which);
+    if (key === ' ') {
+        key = 'Space';
+    }
+    _gaq.push(['_trackEvent', 'keypress', key]);
 };
 
 $(document).ready(function() {

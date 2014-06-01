@@ -20,17 +20,20 @@ $(document).ready(function() {
         fadeOut=false;
         // make the key control help blocks vanish on a keypress
         if (event.which == 32 ) { // space
+            trackKeyPress(event);
             fadeOut=true;
             startstopTimer();
             event.preventDefault();
         }
         else if (event.which == 114 || event.which == 82) { // 'r' and 'R'
+            trackKeyPress(event);
             // don't fade out on a reset
             // we'll be showing it again shortly
             resetTimer();
             event.preventDefault();
         }
         else if (event.which == 99 || event.which == 67) { // 'c' and 'C'
+            trackKeyPress(event);
             fadeOut=true;
             openOptions(true);
             event.preventDefault();
