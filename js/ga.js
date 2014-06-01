@@ -1,6 +1,6 @@
 // https://developer.chrome.com/extensions/tut_analytics
 var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-25425412-10']);
+_gaq.push(['_setAccount', 'UA-25425412-11']);
 _gaq.push(['_trackPageview']);
 
 (function() {
