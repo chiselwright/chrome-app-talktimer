@@ -1,7 +1,7 @@
 {
     "manifest_version":         2,
     "name":                     "Talk Timer",
-    "version":                  "0.0.3",
+    "version":                  "0.0.4",
 
     "description":              "Visual timer for talks, with last minute warning",
 
