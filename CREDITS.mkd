@@ -7,3 +7,9 @@
 # Icon
 
 * [Time Machine](http://findicons.com/icon/547659/time_machine?id=547696)
+
+# Promotional Tile Background
+
+* https://www.flickr.com/photos/pasukaru76/3535379567/in/photostream/
+  Image scaled down to match scale of tile; opacity reduced.
+  No further edits.
